@@ -1,7 +1,6 @@
 package com.increff.employee;
 
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,16 +13,15 @@ import java.util.Properties;
 
 import org.apache.log4j.Logger;
 
-public class EmployeeApi {
+public class EmployeeJdbcApi {
 
-	private static Logger logger = Logger.getLogger(EmployeeApi.class);
+	private static Logger logger = Logger.getLogger(EmployeeJdbcApi.class);
 	private Connection con;
 
-	public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException {
 
-	}
+	//Lets hope this works !!
 
-	public EmployeeApi() throws Exception {
+	public EmployeeJdbcApi() throws Exception {
 		Properties props = new Properties();
 		InputStream inStream = new FileInputStream("employee.properties");
 		props.load(inStream);
@@ -31,7 +29,7 @@ public class EmployeeApi {
 		Class.forName(props.getProperty("jdbc.driver"));
 		con = DriverManager.getConnection(props.getProperty("jdbc.url"), props.getProperty("jdbc.username"),
 				props.getProperty("jdbc.password"));
-
+		
 	}
 
 	public void insert() throws SQLException {

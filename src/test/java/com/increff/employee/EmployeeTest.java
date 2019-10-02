@@ -11,7 +11,7 @@ public class EmployeeTest {
 
 	@Test
 	public void sayHello() throws Exception {
-		EmployeeApi api = new EmployeeApi();
+		EmployeeJdbcApi api = new EmployeeJdbcApi();
 		api.delete();
 		api.insert();
 		ResultSet rs = api.select();
